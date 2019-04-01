@@ -1,17 +1,26 @@
+const commandLineArgs = require("command-line-args");
 const bodyParser = require("body-parser");
 const express = require("express");
-const config = require("./config.json");
 const charts = require("./charts.js");
 const cors = require("cors");
+const path = require("path");
+const fs = require("fs");
 
+const cmdOptions = commandLineArgs([{
+  name: "config",
+  alias: "c",
+  type: String
+}]);
+
+const configOpts = JSON.parse(fs.readFileSync(cmdOptions.config || path.join(process.cwd(), "config.json"), "utf8"));
 var app = express(); // create express app
 // use the json parser for body
 app.use(bodyParser.json());
 app.use(cors());
 
 // start listener
-app.listen(config.server.port, () => {
-  console.log("Server running on port " + config.server.port);
+app.listen(configOpts.server.port, () => {
+  console.log("Server running on port " + configOpts.server.port);
 });
 
 // get request for the list of all active nodes
