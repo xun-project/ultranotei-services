@@ -11,12 +11,14 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chart.js": "^2.8.0",
-    "chartjs-node-canvas": "^2.1.0",
+    "chartjs-node-canvas": "^2.2.1",
     "command-line-args": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "moment": "^2.24.0",
-    "request": "^2.88.0"
+    "query-string": "^6.4.2",
+    "request": "^2.88.0",
+    "sprintf-js": "^1.1.2"
   },
   "jshintConfig": {
     "expr": true,
