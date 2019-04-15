@@ -48,16 +48,6 @@ app.get("/charts/7daysPrice.png", (req, res) => {
 });
 
 app.get("/charts/price.png", (req, res) => {
-  var chartOptions = {
-    vsCurrency: req.query.vsCurrency || 'usd',
-    days: parseInt(req.query.days) || 7,
-    xPoints: parseInt(req.query.xPoints) || 7,
-    priceDecimals: parseInt(req.query.priceDecimals) || 2,
-    priceSymbol: req.query.priceSymbol || "$",
-    width: parseInt(req.query.width) || 1200,
-    height: parseInt(req.query.height) || 400
-  };
-
   charts.getPriceChart(getChartOptions(req), function (image) {
     res.writeHead(200, {
       'Content-Type': 'image/png',
