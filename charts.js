@@ -45,7 +45,7 @@ function getCustomChart(options, chartData, resultCallback) {
           data: smooth(dataPoints, 3),
           backgroundColor: 'rgba(255,165,0,0.2)',
           fill: true,
-          borderWidth: 3,
+          borderWidth: 2,
           pointRadius: 0,
           borderColor: '#FFA500'
         }]
