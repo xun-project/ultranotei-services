@@ -9,6 +9,7 @@
   "author": "Taegus",
   "license": "GPL-3.0",
   "dependencies": {
+    "array-smooth": "^1.0.0",
     "body-parser": "^1.18.3",
     "chart.js": "^2.8.0",
     "chartjs-node-canvas": "^2.2.4",

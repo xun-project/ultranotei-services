@@ -2,6 +2,7 @@ const { CanvasRenderService } = require('chartjs-node-canvas');
 const queryString = require('query-string');
 const vsprintf = require("sprintf-js").vsprintf;
 const request = require("request");
+const smooth = require('array-smooth');
 const moment = require("moment");
 
 function getCoinGeckoData(options, callback) {
@@ -41,7 +42,7 @@ function getCustomChart(options, chartData, resultCallback) {
       data: {
         labels: timeLabels,
         datasets: [{
-          data: dataPoints,
+          data: smooth(dataPoints, 3),
           backgroundColor: 'rgba(255,165,0,0.2)',
           fill: true,
           borderWidth: 0,
