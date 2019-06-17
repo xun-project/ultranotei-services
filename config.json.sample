@@ -1,5 +1,11 @@
 {
-	"server": {
-		"port": 3000
-	}
+  "server": {
+    "port": 3000
+  },
+  "nodes": {
+    "cache": {
+      "expire": 600,
+      "checkPeriod": 120
+    }
+  }
 }
