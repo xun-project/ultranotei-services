@@ -55,7 +55,14 @@ class nodes {
               } else {
                 data.peers.forEach(function (value) {
                   var ipAddress = value.substr(0, value.indexOf(':'));
-                  nodeCacheInstance.set(ipAddress, geoip.lookup(ipAddress), config.nodes.cache.expire);
+                  var nodeData = {
+                    ipAddress: ipAddress,
+                    lastSeen: moment(),
+                    geoData: geoip.lookup(ipAddress)
+                  };
+
+                  // set the node data under the IP key and set its expiration time
+                  nodeCacheInstance.set(ipAddress, nodeData, config.nodes.cache.expire);
                 });
               }
             });
