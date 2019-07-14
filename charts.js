@@ -34,7 +34,7 @@ function getCustomChart(options, chartData, resultCallback) {
     });
 
     for (i = dataLength - 1; i >= 0; i--) {
-      timeLabels.push(moment().subtract(durationAsMS * (i + 1), 'ms').format('YYYY-MM-DD'));
+      timeLabels.push(moment().subtract(durationAsMS * (i + 1), 'ms').format(options.dateFormat));
     }
 
     return {

@@ -23,6 +23,7 @@ app.listen(config.server.port, () => {
 
 function getChartOptions(req) {
   return {
+    dateFormat: req.query.dateFormat || 'YYYY-MM-DD',
     vsCurrency: req.query.vsCurrency || 'usd',
     days: parseInt(req.query.days) || 7,
     xPoints: parseInt(req.query.xPoints) || 7,
