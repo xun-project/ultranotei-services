@@ -52,3 +52,8 @@ charts/price.png?width=1200
 ```
 charts/price.png?height=800
 ```
+**dateFormat**: the height of the resulting image. Example:
+
+```
+charts/price.png?dateFormat=YYYY-MM-DD
+```
