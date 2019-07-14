@@ -1,3 +1,4 @@
+const path = require("path");
 const fs = require("fs");
 
 function shuffle(a) {
@@ -13,7 +14,7 @@ function shuffle(a) {
 
 module.exports = {
   getPoolList: function (resultCallback) {
-    fs.readFile('./data/pools.json', 'utf8', function (err, data) {
+    fs.readFile(path.join(path.dirname(require.main.filename), 'data', 'pools.json'), 'utf8', function (err, data) {
       if (err) {
         throw err;
       } else {

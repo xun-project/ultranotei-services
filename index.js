@@ -1,4 +1,5 @@
 const bodyParser = require("body-parser");
+const vsprintf = require("sprintf-js").vsprintf;
 const express = require("express");
 const config = require("./config.js").configOpts;
 const charts = require("./charts.js");
@@ -94,6 +95,6 @@ app.get("/pools/list", (req, res) => {
 // handle any application errors
 app.use(function (err, req, res, next) {
   if (err) {
-    res.status(500).send(err);
+    res.status(500).send(vsprintf("Error executing the API: %s", [err.message]));
   }
 });
