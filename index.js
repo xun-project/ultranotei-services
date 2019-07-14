@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const config = require("./config.js").configOpts;
 const charts = require("./charts.js");
+const pools = require("./pools.js");
 const nodes = require("./nodes.js");
 const cors = require("cors");
 const path = require("path");
@@ -83,10 +84,15 @@ app.get("/nodes/geodata", (req, res) => {
   });
 });
 
+app.get("/pools/list", (req, res) => {
+  pools.getPoolList(function (data) {
+    res.json(data);
+  });
+});
 
 // handle any application errors
 app.use(function (err, req, res, next) {
   if (err) {
-    next(err);
+    res.status(500).send(err);
   }
 });
