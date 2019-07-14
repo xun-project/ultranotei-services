@@ -3,26 +3,31 @@
       [
          "ccx.aiwakuang.cn",
          "https://ccx.aiwakuang.cn:8111",
+         "Aiwakuang",
          "1"
       ],
       [
          "pool.conceal.network",
          "https://pool.conceal.network/api",
+         "Official Pool",
          "1"
       ],
       [
          "ccx.scecf.org",
          "https://ccx.scecf.org:21001",
+         "SCECF",
          "1"
       ],
       [
          "ccx-us.bluerockpools.net",
          "https://ccx-us.bluerockpools.net:8119",
+         "BlueRockPools",
          "1"
       ],
       [
          "conceal.herominers.com",
          "https://conceal.herominers.com/api",
+         "Herominers",
          "1"
       ],
       [
@@ -33,41 +38,49 @@
       [
          "ccx.thorshammer.cc",
          "https://ccx.thorshammer.cc/api",
+         "Thors Hammer",
          "1"
       ],
       [
          "conceal.my-mining-pool.de",
          "https://apiconceal.my-mining-pool.de",
+         "My-Mining-Pool",
          "1"
       ],
       [
          "conceal.miningpros.online",
          "http://mine.miningpros.online:8117",
+         "MiningPros",
          "1"
       ],
       [
          "conceal.blockfoundry.org",
          "https://conceal.blockfoundry.org/api",
+         "BlockFoundry",
          "1"
       ],
       [
          "ccx.go-mine.it",
          "https://ccx.go-mine.it/api",
+         "GoMine-it!",
          "1"
       ],
       [
          "ccx.romining.farm",
          "https://ccx.romining.farm/api",
+         "RoMining",
          "2"
       ],
       [
          "webccx.semipool.com",
          "https://webccx.semipool.com/api",
+         "SemiPool",
          "2"
       ],
       [
          "conceal.luckypool.io",
          "https://conceal.luckypool.io/api",
+         "Lucky Pool",
          "2"
       ]
    ]
