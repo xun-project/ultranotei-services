@@ -140,7 +140,7 @@ app.get("/pools/list", (req, res) => {
 // handle any application errors
 app.use(function (err, req, res, next) {
   if (err) {
-    logger.error('Error trying to execute request!', err);
+    logger.error('Error trying to execute request!', err.message);
     res.status(500).send(vsprintf("Error executing the API: %s", [err.message]));
   }
 });
