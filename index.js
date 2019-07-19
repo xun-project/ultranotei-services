@@ -1,13 +1,52 @@
 const bodyParser = require("body-parser");
 const vsprintf = require("sprintf-js").vsprintf;
 const express = require("express");
+const winston = require('winston');
 const config = require("./config.js").configOpts;
 const charts = require("./charts.js");
 const pools = require("./pools.js");
 const nodes = require("./nodes.js");
+const utils = require("./utils.js");
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
+
+// message base for winston logging
+const MESSAGE = Symbol.for('message');
+
+const logFormatter = (logEntry) => {
+  const base = { timestamp: new Date() };
+  const json = Object.assign(base, logEntry);
+  logEntry[MESSAGE] = JSON.stringify(json);
+  return logEntry;
+};
+
+// winston loging facilities
+const logger = winston.createLogger({
+  exitOnError: false, // do not exit on handled exceptions
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({
+      filename: path.join(utils.ensureUserDataDir(), 'info.log'),
+      maxsize: 10000000,
+      maxFiles: 5
+    }),
+    new winston.transports.File({
+      filename: path.join(utils.ensureUserDataDir(), 'errors.log'),
+      maxsize: 10000000,
+      maxFiles: 5,
+      level: 'error'
+    })
+  ],
+  exceptionHandlers: [
+    new winston.transports.File({
+      filename: path.join(utils.ensureUserDataDir(), 'exceptions.log'),
+      maxsize: 10000000,
+      maxFiles: 5
+    })
+  ],
+  format: winston.format(logFormatter)()
+});
 
 // create all needed classes
 var nodesIntance = new nodes();
@@ -37,6 +76,7 @@ function getChartOptions(req) {
 
 // get request for the list of all active nodes
 app.get("/charts/7daysPrice.png", (req, res) => {
+  logger.info('call to /charts/7daysPrice.png was made', req);
   charts.getPriceChart(getChartOptions(req), function (image) {
     res.writeHead(200, {
       'Content-Type': 'image/png',
@@ -48,6 +88,7 @@ app.get("/charts/7daysPrice.png", (req, res) => {
 });
 
 app.get("/charts/price.png", (req, res) => {
+  logger.info('call to /charts/price.png was made', req.query);
   charts.getPriceChart(getChartOptions(req), function (image) {
     res.writeHead(200, {
       'Content-Type': 'image/png',
@@ -59,6 +100,7 @@ app.get("/charts/price.png", (req, res) => {
 });
 
 app.get("/charts/volume.png", (req, res) => {
+  logger.info('call to /charts/volume.png was made', req.query);
   charts.getVolumeChart(getChartOptions(req), function (image) {
     res.writeHead(200, {
       'Content-Type': 'image/png',
@@ -70,6 +112,7 @@ app.get("/charts/volume.png", (req, res) => {
 });
 
 app.get("/charts/marketcap.png", (req, res) => {
+  logger.info('call to /charts/marketcap.png was made', req.query);
   charts.getMarketcapChart(getChartOptions(req), function (image) {
     res.writeHead(200, {
       'Content-Type': 'image/png',
@@ -81,12 +124,14 @@ app.get("/charts/marketcap.png", (req, res) => {
 });
 
 app.get("/nodes/geodata", (req, res) => {
+  logger.info('call to /nodes/geodata was made', req.query);
   nodesIntance.getGeoData(null, function (data) {
     res.json(data);
   });
 });
 
 app.get("/pools/list", (req, res) => {
+  logger.info('call to /pools/list was made', req.query);
   pools.getPoolList(function (data) {
     res.json(data);
   });
@@ -95,6 +140,7 @@ app.get("/pools/list", (req, res) => {
 // handle any application errors
 app.use(function (err, req, res, next) {
   if (err) {
+    logger.error('Error trying to execute request!', err);
     res.status(500).send(vsprintf("Error executing the API: %s", [err.message]));
   }
 });
