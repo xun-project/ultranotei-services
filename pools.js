@@ -34,6 +34,7 @@ module.exports = {
         shuffle(JSON.parse(data).ccx).forEach(function (element, index, array) {
           var url = element[1];
           var host = element[0];
+          var name = element[2];
           var version = element[3];
           var statsUrl = null;
 
@@ -73,6 +74,10 @@ module.exports = {
               switch (version) {
                 case "1":
                   poolData.push({
+                    'info': {
+                      'host': host,
+                      'name': name
+                    },
                     'network': {
                       'height': data.network.height,
                     },
@@ -90,6 +95,10 @@ module.exports = {
                   break;
                 case "2":
                   dataObject = {
+                    'info': {
+                      'host': host,
+                      'name': name
+                    },
                     'network': {
                       'height': '',
                     },
@@ -142,6 +151,10 @@ module.exports = {
                   break;
                 case "3":
                   poolData.push({
+                    'info': {
+                      'host': host,
+                      'name': name
+                    },
                     'network': {
                       'height': data.network_statistics.height,
                     },
