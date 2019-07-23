@@ -28,10 +28,10 @@ class nodes {
     request.get({
       url: "https://explorer.conceal.network/pool/list?isReachable=true",
       json: true,
-      headers: { 'User-Agent': 'nodemap' }
+      headers: { 'User-Agent': 'Conceal Services' }
     }, (err, res, data) => {
       if (err) {
-        console.log('Error:', err);
+        console.log('Error:', err.message);
       } else if (res.statusCode !== 200) {
         console.log('Status:', res.statusCode);
       } else {
@@ -46,10 +46,10 @@ class nodes {
             request.get({
               url: value,
               json: true,
-              headers: { 'User-Agent': 'nodemap' }
+              headers: { 'User-Agent': 'Conceal Services' }
             }, (err, res, data) => {
               if (err) {
-                console.log('Error:', err);
+                console.log('Error:', err.message);
               } else if (res.statusCode !== 200) {
                 console.log('Status:', res.statusCode);
               } else {

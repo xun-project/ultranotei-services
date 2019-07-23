@@ -137,6 +137,13 @@ app.get("/pools/list", (req, res) => {
   });
 });
 
+app.get("/pools/data", (req, res) => {
+  logger.info('call to /pools/data was made', req.query);
+  pools.getPoolData(function (data) {
+    res.json(data);
+  });
+});
+
 // handle any application errors
 app.use(function (err, req, res, next) {
   if (err) {

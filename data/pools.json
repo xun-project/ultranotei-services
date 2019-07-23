@@ -33,6 +33,7 @@
       [
          "conceal.modpool.org",
          "https://conceal.modpool.org:9119",
+		 "Modpool",
          "1"
       ],
       [
@@ -63,7 +64,7 @@
          "ccx.go-mine.it",
          "https://ccx.go-mine.it/api",
          "GoMine-it!",
-         "1"
+         "2"
       ],
       [
          "ccx.romining.farm",
@@ -76,6 +77,12 @@
          "https://conceal.luckypool.io/api",
          "Lucky Pool",
          "2"
+      ],
+      [
+         "conceal.hashvault.pro",
+         "https://conceal.hashvault.pro/api",
+         "Hash Vault",
+         "3"
       ]
    ]
 }
