@@ -32,8 +32,8 @@
       ],
       [
          "conceal.modpool.org",
-         "https://conceal.modpool.org:9119",
-		 "Modpool",
+         "https://conceal.modpool.org/api",
+         "Modpool",
          "1"
       ],
       [
