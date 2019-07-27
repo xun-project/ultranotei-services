@@ -83,6 +83,12 @@
          "https://conceal.hashvault.pro/api",
          "Hash Vault",
          "3"
+      ],
+      [
+         "ccx.codpool.com",
+         "https://pool1.codpool.com:8216",
+         "COD Pool",
+         "1"
       ]
    ]
 }
