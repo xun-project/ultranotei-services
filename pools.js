@@ -62,6 +62,7 @@ module.exports = {
           request.get({
             url: statsUrl,
             json: true,
+            timeout: 2000,
             headers: { 'User-Agent': 'Conceal Services' }
           }, (err, res, data) => {
             if (err) {
@@ -116,6 +117,7 @@ module.exports = {
                   request.get({
                     url: url + '/network/stats',
                     json: true,
+                    timeout: 2000,
                     headers: { 'User-Agent': 'Conceal Services' }
                   }, (err, res, network) => {
                     if (err) {
@@ -130,6 +132,7 @@ module.exports = {
                       request.get({
                         url: url + '/config',
                         json: true,
+                        timeout: 2000,
                         headers: { 'User-Agent': 'Conceal Services' }
                       }, (err, res, config) => {
                         if (err) {
