@@ -83,6 +83,12 @@
          "https://pool1.codpool.com:8216",
          "COD Pool",
          "1"
+      ],
+      [
+         "conceal.miner.rocks",
+         "https://conceal.miner.rocks/api",
+         "Miner Rocks",
+         "1"
       ]
    ]
 }
