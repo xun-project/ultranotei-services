@@ -115,17 +115,29 @@ function getCustomChart(options, chartData, resultCallback) {
 module.exports = {
   getPriceChart: function (options, resultCallback) {
     getCoinGeckoData(options, function (data) {
-      getCustomChart(options, data.prices, resultCallback);
+      if (data) {
+        getCustomChart(options, data.prices, resultCallback);
+      } else {
+        resultCallback(null);
+      }
     });
   },
   getVolumeChart: function (options, resultCallback) {
     getCoinGeckoData(options, function (data) {
-      getCustomChart(options, data.total_volumes, resultCallback);
+      if (data) {
+        getCustomChart(options, data.total_volumes, resultCallback);
+      } else {
+        resultCallback(null);
+      }
     });
   },
   getMarketcapChart: function (options, resultCallback) {
     getCoinGeckoData(options, function (data) {
-      getCustomChart(options, data.market_caps, resultCallback);
+      if (data) {
+        getCustomChart(options, data.market_caps, resultCallback);
+      } else {
+        resultCallback(null);
+      }
     });
   }
 };

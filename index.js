@@ -78,48 +78,64 @@ function getChartOptions(req) {
 app.get("/charts/7daysPrice.png", (req, res) => {
   logger.info('call to /charts/7daysPrice.png was made', req);
   charts.getPriceChart(getChartOptions(req), function (image) {
-    res.writeHead(200, {
-      'Content-Type': 'image/png',
-      'Content-Length': image.length
-    });
+    if (image) {
+      res.writeHead(200, {
+        'Content-Type': 'image/png',
+        'Content-Length': image.length
+      });
 
-    res.end(image);
+      res.end(image);
+    } else {
+      res.status(500).send("Error executing the API: charts/7daysPrice.png");
+    }
   });
 });
 
 app.get("/charts/price.png", (req, res) => {
   logger.info('call to /charts/price.png was made', req.query);
   charts.getPriceChart(getChartOptions(req), function (image) {
-    res.writeHead(200, {
-      'Content-Type': 'image/png',
-      'Content-Length': image.length
-    });
+    if (image) {
+      res.writeHead(200, {
+        'Content-Type': 'image/png',
+        'Content-Length': image.length
+      });
 
-    res.end(image);
+      res.end(image);
+    } else {
+      res.status(500).send("Error executing the API: charts/price.png");
+    }
   });
 });
 
 app.get("/charts/volume.png", (req, res) => {
   logger.info('call to /charts/volume.png was made', req.query);
   charts.getVolumeChart(getChartOptions(req), function (image) {
-    res.writeHead(200, {
-      'Content-Type': 'image/png',
-      'Content-Length': image.length
-    });
+    if (image) {
+      res.writeHead(200, {
+        'Content-Type': 'image/png',
+        'Content-Length': image.length
+      });
 
-    res.end(image);
+      res.end(image);
+    } else {
+      res.status(500).send("Error executing the API: charts/volume.png");
+    }
   });
 });
 
 app.get("/charts/marketcap.png", (req, res) => {
   logger.info('call to /charts/marketcap.png was made', req.query);
   charts.getMarketcapChart(getChartOptions(req), function (image) {
-    res.writeHead(200, {
-      'Content-Type': 'image/png',
-      'Content-Length': image.length
-    });
+    if (image) {
+      res.writeHead(200, {
+        'Content-Type': 'image/png',
+        'Content-Length': image.length
+      });
 
-    res.end(image);
+      res.end(image);
+    } else {
+      res.status(500).send("Error executing the API: charts/marketcap.png");
+    }
   });
 });
 

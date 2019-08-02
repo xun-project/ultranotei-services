@@ -79,7 +79,7 @@ module.exports = {
                       'name': name
                     },
                     'network': {
-                      'height': data.network.height,
+                      'height': data.network ? data.network.height : 0,
                     },
                     'pool': {
                       'lastBlockFound': data.lastblock.timestamp,
