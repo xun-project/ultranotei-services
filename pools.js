@@ -80,16 +80,16 @@ module.exports = {
                       'name': name
                     },
                     'network': {
-                      'height': data.network ? data.network.height : 0,
+                      'height': data.network ? (data.network.height || 0) : 0,
                     },
                     'pool': {
-                      'lastBlockFound': data.lastblock.timestamp,
-                      'hashrate': data.pool.hashrate,
-                      'miners': data.pool.miners
+                      'lastBlockFound': data.lastblock ? (data.lastblock.timestamp || 0) : (data.pool.lastBlockFound || 0),
+                      'hashrate': data.pool.hashrate || 0,
+                      'miners': data.pool.miners || 0
                     },
                     'config': {
-                      'minPaymentThreshold': data.config.minPaymentThreshold,
-                      'poolFee': data.config.fee
+                      'minPaymentThreshold': data.config.minPaymentThreshold || 0,
+                      'poolFee': data.config.fee || 0
                     }
                   });
                   checkForQueryFinished();
@@ -104,9 +104,9 @@ module.exports = {
                       'height': '',
                     },
                     'pool': {
-                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime,
-                      'hashrate': data.pool_statistics.hashRate,
-                      'miners': data.pool_statistics.miners
+                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime || 0,
+                      'hashrate': data.pool_statistics.hashRate || 0,
+                      'miners': data.pool_statistics.miners || 0
                     },
                     'config': {
                       'minPaymentThreshold': '',
@@ -127,7 +127,7 @@ module.exports = {
                       console.log(statsUrl + ' -> Status:', res.statusCode);
                       checkForQueryFinished();
                     } else {
-                      dataObject.network.height = network.height;
+                      dataObject.network.height = network.height || 0;
 
                       request.get({
                         url: url + '/config',
@@ -142,8 +142,8 @@ module.exports = {
                           console.log(statsUrl + ' -> Status:', res.statusCode);
                           checkForQueryFinished();
                         } else {
-                          dataObject.config.minPaymentThreshold = config.min_wallet_payout;
-                          dataObject.config.poolFee = config.pplns_fee;
+                          dataObject.config.minPaymentThreshold = config.min_wallet_payout || 0;
+                          dataObject.config.poolFee = config.pplns_fee || 0;
 
                           poolData.push(dataObject);
                           checkForQueryFinished();
@@ -159,16 +159,16 @@ module.exports = {
                       'name': name
                     },
                     'network': {
-                      'height': data.network_statistics.height,
+                      'height': data.network_statistics.height || 0,
                     },
                     'pool': {
-                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime,
-                      'hashrate': data.pool_statistics.hashRate,
-                      'miners': data.pool_statistics.miners
+                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime || 0,
+                      'hashrate': data.pool_statistics.hashRate || 0,
+                      'miners': data.pool_statistics.miners || 0
                     },
                     'config': {
-                      'minPaymentThreshold': data.config.min_wallet_payout,
-                      'poolFee': data.config.pplns_fee
+                      'minPaymentThreshold': data.config.min_wallet_payout || 0,
+                      'poolFee': data.config.pplns_fee || 0
                     }
                   });
                   checkForQueryFinished();
