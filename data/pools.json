@@ -1,3 +1,4 @@
+
 {
    "ccx":[
       [
@@ -82,6 +83,12 @@
          "conceal.miner.rocks",
          "https://conceal.miner.rocks/api",
          "Miner Rocks",
+         "1"
+      ],
+      [
+         "mineccx.com",
+         "https://mineccx.com/api",
+         "MineCCX",
          "1"
       ]
    ]
