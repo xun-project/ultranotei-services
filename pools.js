@@ -1,6 +1,6 @@
 const request = require("request");
 const path = require("path");
-const fs = require("fs");
+const fs = require('graceful-fs');
 
 function shuffle(a) {
   var j, x, i;

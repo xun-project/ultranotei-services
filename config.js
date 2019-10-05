@@ -1,6 +1,6 @@
 const commandLineArgs = require("command-line-args");
 const path = require("path");
-const fs = require("fs");
+const fs = require('graceful-fs');
 
 
 const cmdOptions = commandLineArgs([{
