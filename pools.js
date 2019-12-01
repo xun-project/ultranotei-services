@@ -104,7 +104,7 @@ module.exports = {
                       'height': '',
                     },
                     'pool': {
-                      'lastBlockFound': (data.pool_statistics.lastBlockFoundTime || 0) * 1000,
+                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime || 0,
                       'hashrate': data.pool_statistics.hashRate || 0,
                       'miners': data.pool_statistics.miners || 0
                     },
