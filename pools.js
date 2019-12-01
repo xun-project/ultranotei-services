@@ -83,7 +83,7 @@ module.exports = {
                       'height': data.network ? (data.network.height || 0) : 0,
                     },
                     'pool': {
-                      'lastBlockFound': data.pool.lastBlockFound ? parseInt(data.pool.lastBlockFound) : parseInt(lastblock.timestamp || 0) * 1000,
+                      'lastBlockFound': (lastblock && lastblock.timestamp) ? parseInt(lastblock.timestamp || 0) * 1000 : parseInt(data.pool.lastBlockFound),
                       'hashrate': data.pool.soloHashrate ? (data.pool.soloHashrate + (data.pool.hashrate || 0)) : (data.pool.hashrate || 0),
                       'miners': data.pool.soloMiners ? (data.pool.soloMiners + (data.pool.miners || 0)) : (data.pool.miners || 0)
                     },
