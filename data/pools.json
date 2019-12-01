@@ -2,12 +2,6 @@
 {
    "ccx":[
       [
-         "ccx.aiwakuang.cn",
-         "https://ccx.aiwakuang.cn:8111",
-         "Aiwakuang",
-         "1"
-      ],
-      [
          "pool.conceal.network",
          "https://pool.conceal.network/api",
          "Official Pool",
@@ -32,18 +26,6 @@
          "1"
       ],
       [
-         "conceal.modpool.org",
-         "https://conceal.modpool.org/api",
-         "Modpool",
-         "1"
-      ],
-      [
-         "conceal.miningpros.online",
-         "http://mine.miningpros.online:8117",
-         "MiningPros",
-         "1"
-      ],
-      [
          "conceal.blockfoundry.org",
          "https://conceal.blockfoundry.org/api",
          "BlockFoundry",
@@ -56,28 +38,16 @@
          "2"
       ],
       [
-         "ccx.romining.farm",
-         "https://ccx.romining.farm/api",
-         "RoMining",
-         "2"
-      ],
-      [
          "conceal.luckypool.io",
          "https://conceal.luckypool.io/api",
          "Lucky Pool",
-         "2"
+         "1"
       ],
       [
          "conceal.hashvault.pro",
          "https://conceal.hashvault.pro/api",
          "Hash Vault",
          "3"
-      ],
-      [
-         "ccx.codpool.com",
-         "https://pool1.codpool.com:8216",
-         "COD Pool",
-         "1"
       ],
       [
          "conceal.miner.rocks",
@@ -89,6 +59,12 @@
          "mineccx.com",
          "https://mineccx.com/api",
          "MineCCX",
+         "1"
+      ],
+      [
+         "fastpool.xyz/ccx",
+         "https://fastpool.xyz/api-ccx",
+         "Fastpool",
          "1"
       ]
    ]
