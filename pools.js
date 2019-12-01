@@ -83,7 +83,7 @@ module.exports = {
                       'height': data.network ? (data.network.height || 0) : 0,
                     },
                     'pool': {
-                      'lastBlockFound': data.pool.lastBlockFound || 0,
+                      'lastBlockFound': parseInt(data.pool.lastBlockFound || 0),
                       'hashrate': data.pool.soloHashrate ? (data.pool.soloHashrate + (data.pool.hashrate || 0)) : (data.pool.hashrate || 0),
                       'miners': data.pool.soloMiners ? (data.pool.soloMiners + (data.pool.miners || 0)) : (data.pool.miners || 0)
                     },
@@ -104,7 +104,7 @@ module.exports = {
                       'height': '',
                     },
                     'pool': {
-                      'lastBlockFound': data.pool_statistics.lastBlockFoundTime || 0,
+                      'lastBlockFound': parseInt(data.pool_statistics.lastBlockFoundTime || 0),
                       'hashrate': data.pool_statistics.hashRate || 0,
                       'miners': data.pool_statistics.miners || 0
                     },
@@ -162,7 +162,7 @@ module.exports = {
                       'height': data.network_statistics.height || 0,
                     },
                     'pool': {
-                      'lastBlockFound': (data.pool_statistics.lastBlockFoundTime || 0) * 1000,
+                      'lastBlockFound': parseInt(data.pool_statistics.lastBlockFoundTime || 0) * 1000,
                       'hashrate': data.pool_statistics.hashRate || 0,
                       'miners': data.pool_statistics.miners || 0
                     },
