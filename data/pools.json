@@ -66,6 +66,13 @@
          "https://fastpool.xyz/api-ccx",
          "Fastpool",
          "1"
-      ]
+      ],
+      [
+         "miningpool.online/conceal",
+         "https://miningpool.online/conceal/api",
+         "Miningpool",
+         "1"
+      ],
+      
    ]
 }
