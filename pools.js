@@ -63,6 +63,7 @@ module.exports = {
             url: statsUrl,
             json: true,
             timeout: 2000,
+            rejectUnauthorized: false,
             headers: { 'User-Agent': 'Conceal Services' }
           }, (err, res, data) => {
             if (err) {
