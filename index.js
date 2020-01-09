@@ -1,4 +1,5 @@
 const bodyParser = require("body-parser");
+const exchanges = require("./exchanges.js");
 const vsprintf = require("sprintf-js").vsprintf;
 const express = require("express");
 const winston = require('winston');
@@ -156,6 +157,13 @@ app.get("/pools/list", (req, res) => {
 app.get("/pools/data", (req, res) => {
   logger.info('call to /pools/data was made', req.query);
   pools.getPoolData(function (data) {
+    res.json(data);
+  });
+});
+
+app.get("/exchanges/list", (req, res) => {
+  logger.info('call to /exchanges/list was made', req.query);
+  exchanges.getExchangesList(req, function (data) {
     res.json(data);
   });
 });

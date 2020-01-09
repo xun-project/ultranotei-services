@@ -1,0 +1,48 @@
+
+{
+   "exchanges":[
+      {
+       "name": "Hotbit",
+       "url": "https://www.hotbit.io",
+       "address": "ccx7dnmkqFgHHnuQsaWjg57Hk69jmk6k4XKdG34jmX39ho5Gz45SJJ9U96zYzAcqP421xp8qU3NVpMsFhCotmuGR75i9PAQXEj",
+       "paymentId": true
+      },
+      {
+       "name": "Stex",
+       "url": "https://www.stex.com",
+       "address": "ccx7KNbs8JQM3DL3HENXSCfqnQ3idKdAibZtrQDxCGZvJAutF8CdUihjUvmVyJ2f3VLnXhkrGnitZD15CnZPcNob5cxVVqER68",
+       "paymentId": true
+      },
+      {
+       "name": "Graviex",
+       "url": "https://graviex.net",
+       "paymentId": false
+      },
+      {
+       "name": "QTrade",
+       "url": "https://qtrade.io",
+       "paymentId": false
+      },
+      {
+       "name": "Finexbox",
+       "url": "https://www.finexbox.com",
+       "paymentId": false
+      },
+      {
+       "name": "ProBitEx",
+       "url": "https://www.probitex.com",
+       "paymentId": false
+      },
+      {
+       "name": "Sistemkoin",
+       "url": "https://www.probitex.com",
+       "paymentId": false
+      },
+      {
+       "name": "TradeOgre",
+       "url": "https://tradeogre.com",
+       "address": "ccx7aoNYpGb7sndJtEDWvCBQhPAy9mC8QW5KWuCx8J1FJrDcDrER1XYA9LGtggrR7ZC4KfQmQ2uRN47L9WypBbNLAeq2Q4Q9WN",
+       "paymentId": true
+      }
+   ]
+}
