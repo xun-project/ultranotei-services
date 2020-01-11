@@ -22,13 +22,13 @@ module.exports = {
         resultCallback(
           JSON.parse(data).exchanges.filter(function (exchange) {
             if (req.query.name) {
-              if ((!exchange.name) || ((exchange.name.toUpperCase().indexOf(req.query.name.toUpperCase())) == -1)) {
+              if (!exchange.name || !(((exchange.name.toUpperCase().indexOf(req.query.name.toUpperCase())) > -1) || (req.query.name === "*"))) {
                 return false;
               }
             }
 
             if (req.query.address) {
-              if ((!exchange.address) || ((exchange.address.toUpperCase().indexOf(req.query.address.toUpperCase())) == -1)) {
+              if (!exchange.address || !(((exchange.address.toUpperCase().indexOf(req.query.address.toUpperCase())) > -1) || (req.query.address === "*"))) {
                 return false;
               }
             }
