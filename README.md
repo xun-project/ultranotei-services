@@ -88,6 +88,20 @@ exchanges/list?name=Hotbit
 exchanges/list?address=ccx7dnmkqFgHHnuQsaWjg57Hk69jmk6k4XKdG34jmX39ho5Gz45SJJ9U96zYzAcqP421xp8qU3NVpMsFhCotmuGR75i9PAQXEj
 ```
 
+Both parameters also support wildcard searches and partial searches. For example
+
+```
+exchanges/list?name=Hot
+```
+
+Will search for all exchanges with that substring in the name. While
+
+```
+exchanges/list?address=*
+```
+
+Will search for all exchanges that have an address field present.
+
 # Node API-s
 
 These are APIs that will give you nodes info
