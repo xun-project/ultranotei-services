@@ -33,6 +33,12 @@ module.exports = {
               }
             }
 
+            if (req.query.paymentId) {
+              if (!exchange.paymentId.toString() || !(((exchange.paymentId.toString().toUpperCase().indexOf(req.query.paymentId.toUpperCase())) > -1) || (req.query.paymentId === "*"))) {
+                return false;
+              }
+            }
+
             return true;
           })
         );
