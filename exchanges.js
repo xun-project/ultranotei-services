@@ -13,28 +13,46 @@ function shuffle(a) {
   return a;
 }
 
+function checkIfMatches(parameter, value, partial) {
+  let matches = true;
+
+  if (partial) {
+    if (!value || !(((value.toUpperCase().indexOf(parameter.toUpperCase())) > -1) || (parameter === "*"))) {
+      matches = false;
+    }
+  } else {
+    if (!value || !(value.toUpperCase() == parameter.toUpperCase())) {
+      matches = false;
+    }
+  }
+
+  return matches;
+}
+
 module.exports = {
   getExchangesList: function (req, resultCallback) {
     fs.readFile(path.join(path.dirname(require.main.filename), 'data', 'exchanges.json'), 'utf8', function (err, data) {
       if (err) {
         throw err;
       } else {
+        let partial = req.query.partial ? req.query.partial.toUpperCase() == "TRUE" : true
+
         resultCallback(
           JSON.parse(data).exchanges.filter(function (exchange) {
             if (req.query.name) {
-              if (!exchange.name || !(((exchange.name.toUpperCase().indexOf(req.query.name.toUpperCase())) > -1) || (req.query.name === "*"))) {
+              if (!checkIfMatches(req.query.name, exchange.name, partial)) {
                 return false;
               }
             }
 
             if (req.query.address) {
-              if (!exchange.address || !(((exchange.address.toUpperCase().indexOf(req.query.address.toUpperCase())) > -1) || (req.query.address === "*"))) {
+              if (!checkIfMatches(req.query.address, exchange.address, partial)) {
                 return false;
               }
             }
 
             if (req.query.paymentId) {
-              if (!exchange.paymentId.toString() || !(((exchange.paymentId.toString().toUpperCase().indexOf(req.query.paymentId.toUpperCase())) > -1) || (req.query.paymentId === "*"))) {
+              if (!checkIfMatches(req.query.paymentId, exchange.paymentId, partial)) {
                 return false;
               }
             }
