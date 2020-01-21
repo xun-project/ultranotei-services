@@ -1,4 +1,5 @@
 const bodyParser = require("body-parser");
+const runProfiler = require('./profile.js')
 const exchanges = require("./exchanges.js");
 const vsprintf = require("sprintf-js").vsprintf;
 const express = require("express");
@@ -167,6 +168,16 @@ app.get("/exchanges/list", (req, res) => {
     res.json(data);
   });
 });
+
+app.get('/system/profile', async (req, res) => {
+  try {
+    let profile = await runProfiler(req.query.duration ? parseInt(req.query.duration) : 30);
+    res.attachment(`profile_${Date.now()}.cpuprofile`);
+    res.send(profile);
+  } catch (er) {
+    res.status(500).send(er.message);
+  }
+})
 
 // handle any application errors
 app.use(function (err, req, res, next) {
