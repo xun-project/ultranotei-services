@@ -35,7 +35,7 @@ module.exports = {
       if (err) {
         throw err;
       } else {
-        let partial = req.query.partial ? req.query.partial.toUpperCase() == "TRUE" : true
+        let partial = req.query.partial ? req.query.partial.toUpperCase() == "TRUE" : false
 
         resultCallback(
           JSON.parse(data).exchanges.filter(function (exchange) {
