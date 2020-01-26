@@ -76,13 +76,13 @@ These are APIs that will give you exchanges info
 
 ## Supported Parameters
 
-**name**: Filter by the exchange name. Partial searches supported. Example:
+**name**: Filter by the exchange name. Partial searches supported (by default). Example:
 
 ```
 exchanges/list?name=Hotbit
 ```
 
-**address**: Filter by the exchange address if its a permanent one. Partial searches supported. Example:
+**address**: Filter by the exchange address if its a permanent one. Partial searches supported (by default). Example:
 
 ```
 exchanges/list?address=ccx7dnmkqFgHHnuQsaWjg57Hk69jmk6k4XKdG34jmX39ho5Gz45SJJ9U96zYzAcqP421xp8qU3NVpMsFhCotmuGR75i9PAQXEj
@@ -101,6 +101,13 @@ exchanges/list?address=*
 ```
 
 Will search for all exchanges that have an address field present.
+
+**partial**: Explicitly define if partial search is on or off. Its on by default. If you want to disable it you can set it like this: 
+
+```
+exchanges/list?partial=false
+```
+
 
 # Node API-s
 
