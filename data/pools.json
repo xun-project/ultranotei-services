@@ -72,6 +72,12 @@
          "https://miningpool.online/conceal/api",
          "Miningpool",
          "1"
+      ],
+      [
+         "ccx.codpool.com/",
+         "https://codpool.codms.com:8216",
+         "Codpool",
+         "1"
       ]
    ]
 }
