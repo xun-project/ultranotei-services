@@ -45,7 +45,7 @@
       ],
       [
          "conceal.hashvault.pro",
-         "https://conceal.hashvault.pro/api",
+         "https://api.hashvault.pro/v2/conceal",
          "Hash Vault",
          "3"
       ],
