@@ -9,21 +9,31 @@ const geoip = require('geoip-lite');
 
 class nodes {
   constructor() {
+    this.geoJSONArray = [];
+    var thisRef = this;
+
     this.addressList = [
       "https://explorer.conceal.network/daemon/getpeers"
     ];
 
     this.nodeCache = new NodeCache({ stdTTL: config.nodes.cache.expire, checkperiod: config.nodes.cache.checkPeriod }); // the cache object
     this.dataSchedule = schedule.scheduleJob('* */6 * * *', () => {
-      this.updateGeoData();
+      this.updateGeoData(function (data) {
+        thisRef.geoJSONArray = data;
+      });
     });
 
-    this.updateGeoData();
+    this.updateGeoData(function (data) {
+      thisRef.geoJSONArray = data;
+    });
   }
 
-  updateGeoData() {
+  updateGeoData(callback) {
+    var geoJSONArray = [];
+
     var addressListInstance = this.addressList;
     var nodeCacheInstance = this.nodeCache;
+    var counter = 0;
 
     request.get({
       url: "https://explorer.conceal.network/pool/list?isReachable=true",
@@ -36,7 +46,6 @@ class nodes {
         console.log('Status:', res.statusCode);
       } else {
         if (data.success) {
-
           data.list.forEach(function (value) {
             addressListInstance.push(vsprintf("http://%s:%s/getpeers", [value.nodeHost, value.nodePort]));
           });
@@ -50,11 +59,15 @@ class nodes {
             }, (err, res, data) => {
               if (err) {
                 console.log('Error:', err.message);
+                counter++;
               } else if (res.statusCode !== 200) {
                 console.log('Status:', res.statusCode);
+                counter++;
               } else {
                 data.peers.forEach(function (value) {
                   var ipAddress = value.substr(0, value.indexOf(':'));
+                  counter++;
+
                   var nodeData = {
                     ipAddress: ipAddress,
                     lastSeen: moment(),
@@ -63,6 +76,19 @@ class nodes {
 
                   // set the node data under the IP key and set its expiration time
                   nodeCacheInstance.set(ipAddress, nodeData, config.nodes.cache.expire);
+
+                  if (counter == addressListInstance.length) {
+                    nodeCacheInstance.keys(function (err, keys) {
+                      if (!err) {
+                        for (var key of keys) {
+                          geoJSONArray.push(nodeCacheInstance.get(key));
+                        }
+                      }
+                    });
+
+                    // return the data once complete
+                    callback(geoJSONArray);
+                  }
                 });
               }
             });
@@ -72,19 +98,8 @@ class nodes {
     });
   }
 
-  getGeoData(options, resultCallback) {
-    var nodeCacheInstance = this.nodeCache;
-    var geoJSONArray = [];
-
-    nodeCacheInstance.keys(function (err, keys) {
-      if (!err) {
-        for (var key of keys) {
-          geoJSONArray.push(nodeCacheInstance.get(key));
-        }
-      }
-    });
-
-    resultCallback(geoJSONArray);
+  getGeoData(options) {
+    return this.geoJSONArray;
   }
 }
 

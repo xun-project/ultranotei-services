@@ -143,9 +143,7 @@ app.get("/charts/marketcap.png", (req, res) => {
 
 app.get("/nodes/geodata", (req, res) => {
   logger.info('call to /nodes/geodata was made', req.query);
-  nodesIntance.getGeoData(null, function (data) {
-    res.json(data);
-  });
+  res.json(nodesIntance.getGeoData(null));
 });
 
 app.get("/pools/list", (req, res) => {
