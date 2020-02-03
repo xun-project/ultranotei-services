@@ -82,20 +82,20 @@ class nodes {
                   // set the node data under the IP key and set its expiration time
                   nodeCacheInstance.set(ipAddress, nodeData, config.nodes.cache.expire);
                 });
+              }
 
-                // check if we have processed all nodes
-                if (counter == addressListInstance.length) {
-                  nodeCacheInstance.keys(function (err, keys) {
-                    if (!err) {
-                      for (var key of keys) {
-                        geoJSONArray.push(nodeCacheInstance.get(key));
-                      }
+              // check if we have processed all nodes
+              if (counter >= addressListInstance.length) {
+                nodeCacheInstance.keys(function (err, keys) {
+                  if (!err) {
+                    for (var key of keys) {
+                      geoJSONArray.push(nodeCacheInstance.get(key));
                     }
-                  });
+                  }
+                });
 
-                  // return the data once complete
-                  callback(geoJSONArray);
-                }
+                // return the data once complete
+                callback(geoJSONArray);
               }
             });
           });
