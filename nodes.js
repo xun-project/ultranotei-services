@@ -47,7 +47,11 @@ class nodes {
       } else {
         if (data.success) {
           data.list.forEach(function (value) {
-            addressListInstance.push(vsprintf("http://%s:%s/getpeers", [value.nodeHost, value.nodePort]));
+            var address = vsprintf("http://%s:%s/getpeers", [value.nodeHost, value.nodePort]);
+
+            if (addressListInstance.indexOf(address) == -1) {
+              addressListInstance.push(address);
+            }
           });
 
           // now loop all the addressed from the list
