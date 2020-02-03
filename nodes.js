@@ -68,9 +68,10 @@ class nodes {
                 console.log('Status:', res.statusCode);
                 counter++;
               } else {
+                counter++;
+
                 data.peers.forEach(function (value) {
                   var ipAddress = value.substr(0, value.indexOf(':'));
-                  counter++;
 
                   var nodeData = {
                     ipAddress: ipAddress,
@@ -80,20 +81,21 @@ class nodes {
 
                   // set the node data under the IP key and set its expiration time
                   nodeCacheInstance.set(ipAddress, nodeData, config.nodes.cache.expire);
-
-                  if (counter == addressListInstance.length) {
-                    nodeCacheInstance.keys(function (err, keys) {
-                      if (!err) {
-                        for (var key of keys) {
-                          geoJSONArray.push(nodeCacheInstance.get(key));
-                        }
-                      }
-                    });
-
-                    // return the data once complete
-                    callback(geoJSONArray);
-                  }
                 });
+
+                // check if we have processed all nodes
+                if (counter == addressListInstance.length) {
+                  nodeCacheInstance.keys(function (err, keys) {
+                    if (!err) {
+                      for (var key of keys) {
+                        geoJSONArray.push(nodeCacheInstance.get(key));
+                      }
+                    }
+                  });
+
+                  // return the data once complete
+                  callback(geoJSONArray);
+                }
               }
             });
           });
