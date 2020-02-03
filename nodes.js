@@ -10,7 +10,6 @@ const geoip = require('geoip-lite');
 class nodes {
   constructor() {
     this.geoJSONArray = [];
-    var thisRef = this;
 
     this.addressList = [
       "https://explorer.conceal.network/daemon/getpeers"
@@ -18,13 +17,13 @@ class nodes {
 
     this.nodeCache = new NodeCache({ stdTTL: config.nodes.cache.expire, checkperiod: config.nodes.cache.checkPeriod }); // the cache object
     this.dataSchedule = schedule.scheduleJob('* */6 * * *', () => {
-      this.updateGeoData(function (data) {
-        thisRef.geoJSONArray = data;
+      this.updateGeoData((data) => {
+        this.geoJSONArray = data;
       });
     });
 
-    this.updateGeoData(function (data) {
-      thisRef.geoJSONArray = data;
+    this.updateGeoData((data) => {
+      this.geoJSONArray = data;
     });
   }
 
