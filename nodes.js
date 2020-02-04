@@ -17,21 +17,14 @@ class nodes {
 
     this.nodeCache = new NodeCache({ stdTTL: config.nodes.cache.expire, checkperiod: config.nodes.cache.checkPeriod }); // the cache object
     this.dataSchedule = schedule.scheduleJob('* */6 * * *', () => {
-      this.updateGeoData((data) => {
-        this.geoJSONArray = data;
-      });
+      this.updateGeoData();
     });
 
-    this.updateGeoData((data) => {
-      this.geoJSONArray = data;
-    });
+    this.updateGeoData();
   }
 
-  updateGeoData(callback) {
-    var geoJSONArray = [];
-
-    var addressListInstance = this.addressList;
-    var nodeCacheInstance = this.nodeCache;
+  updateGeoData = () => {
+    this.geoJSONArray = [];
     var counter = 0;
 
     request.get({
@@ -45,16 +38,16 @@ class nodes {
         console.log('Status:', res.statusCode);
       } else {
         if (data.success) {
-          data.list.forEach(function (value) {
+          data.list.forEach((value) => {
             var address = vsprintf("http://%s:%s/getpeers", [value.nodeHost, value.nodePort]);
 
-            if (addressListInstance.indexOf(address) == -1) {
-              addressListInstance.push(address);
+            if (this.addressList.indexOf(address) == -1) {
+              this.addressList.push(address);
             }
           });
 
           // now loop all the addressed from the list
-          addressListInstance.forEach(function (value) {
+          this.addressList.forEach((value) => {
             request.get({
               url: value,
               json: true,
@@ -69,7 +62,7 @@ class nodes {
               } else {
                 counter++;
 
-                data.peers.forEach(function (value) {
+                data.peers.forEach((value) => {
                   var ipAddress = value.substr(0, value.indexOf(':'));
 
                   var nodeData = {
@@ -79,22 +72,19 @@ class nodes {
                   };
 
                   // set the node data under the IP key and set its expiration time
-                  nodeCacheInstance.set(ipAddress, nodeData, config.nodes.cache.expire);
+                  this.nodeCache.set(ipAddress, nodeData, config.nodes.cache.expire);
                 });
               }
 
               // check if we have processed all nodes
-              if (counter >= addressListInstance.length) {
-                nodeCacheInstance.keys(function (err, keys) {
+              if (counter >= this.addressList.length) {
+                this.nodeCache.keys((err, keys) => {
                   if (!err) {
                     for (var key of keys) {
-                      geoJSONArray.push(nodeCacheInstance.get(key));
+                      this.geoJSONArray.push(this.nodeCache.get(key));
                     }
                   }
                 });
-
-                // return the data once complete
-                callback(geoJSONArray);
               }
             });
           });
