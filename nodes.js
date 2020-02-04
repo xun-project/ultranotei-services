@@ -93,7 +93,7 @@ class nodes {
     });
   }
 
-  getGeoData(options) {
+  getGeoData = (options) => {
     return this.geoJSONArray;
   }
 }
