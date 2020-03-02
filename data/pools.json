@@ -78,6 +78,12 @@
          "https://codpool.codms.com:8216",
          "Codpool",
          "1"
+      ],
+      [
+         "daxminer.com",
+         "https://daxminer.com/api-conceal",
+         "DAXMiner",
+         "1"
       ]
    ]
 }
