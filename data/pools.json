@@ -1,87 +1,17 @@
 
 {
-   "ccx":[
+   "xuni":[
       [
-         "pool.conceal.network",
-         "https://pool.conceal.network/api",
+         "infinity.ultranote.org",
+         "https://infinity.ultranote.org/api",
          "Official Pool",
          "1"
       ],
+      
+      
       [
-         "ccx.scecf.org",
-         "https://ccx.scecf.org:21001",
-         "SCECF",
-         "1"
-      ],
-      [
-         "ccx-us.bluerockpools.net",
-         "https://ccx-us.bluerockpools.net:8119",
-         "BlueRockPools",
-         "1"
-      ],
-      [
-         "conceal.herominers.com",
-         "https://conceal.herominers.com/api",
-         "Herominers",
-         "1"
-      ],
-      [
-         "conceal.blockfoundry.org",
-         "https://conceal.blockfoundry.org/api",
-         "BlockFoundry",
-         "1"
-      ],
-      [
-         "ccx.go-mine.it",
-         "https://ccx.go-mine.it/api",
-         "GoMine-it!",
-         "2"
-      ],
-      [
-         "conceal.luckypool.io",
-         "https://conceal.luckypool.io/api",
-         "Lucky Pool",
-         "1"
-      ],
-      [
-         "conceal.hashvault.pro",
-         "https://api.hashvault.pro/v2/conceal",
-         "Hash Vault",
-         "3"
-      ],
-      [
-         "conceal.miner.rocks",
-         "https://conceal.miner.rocks/api",
-         "Miner Rocks",
-         "1"
-      ],
-      [
-         "mineccx.com",
-         "https://mineccx.com/api",
-         "MineCCX",
-         "1"
-      ],
-      [
-         "fastpool.xyz/ccx",
-         "https://fastpool.xyz/api-ccx",
-         "Fastpool",
-         "1"
-      ],
-      [
-         "miningpool.online/conceal",
-         "https://miningpool.online/conceal/api",
-         "Miningpool",
-         "1"
-      ],
-      [
-         "ccx.codpool.com",
-         "https://codpool.codms.com:8216",
-         "Codpool",
-         "1"
-      ],
-      [
-         "daxminer.com",
-         "https://daxminer.com/api-conceal",
+         "trinity.ultranote.org",
+         "https://trinity.ultranote.org/api",
          "DAXMiner",
          "1"
       ]

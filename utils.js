@@ -1,4 +1,5 @@
 // Copyright (c) 2019, Taegus Cromis, The Conceal Developers
+// Copyright (c) 2020, The UltraNote Developers
 //
 // Please see the included LICENSE file for more information.
 

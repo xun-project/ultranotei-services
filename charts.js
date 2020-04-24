@@ -12,7 +12,7 @@ function getCoinGeckoData(options, callback) {
   };
 
   var packetData = {
-    uri: vsprintf("https://api.coingecko.com/api/v3/coins/conceal/market_chart?%s", [queryString.stringify(queryParams)]),
+    uri: vsprintf("https://api.coingecko.com/api/v3/coins/ultranotei/market_chart?%s", [queryString.stringify(queryParams)]),
     method: "GET",
     json: true
   };

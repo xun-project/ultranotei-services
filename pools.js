@@ -19,7 +19,7 @@ module.exports = {
       if (err) {
         throw err;
       } else {
-        resultCallback(shuffle(JSON.parse(data).ccx));
+        resultCallback(shuffle(JSON.parse(data).XUNI));
       }
     });
   },
@@ -31,7 +31,7 @@ module.exports = {
         var poolData = [];
         var counter = 0;
 
-        shuffle(JSON.parse(data).ccx).forEach(function (element, index, array) {
+        shuffle(JSON.parse(data).XUNI).forEach(function (element, index, array) {
           var url = element[1];
           var host = element[0];
           var name = element[2];
@@ -64,7 +64,7 @@ module.exports = {
             json: true,
             timeout: 2000,
             rejectUnauthorized: false,
-            headers: { 'User-Agent': 'Conceal Services' }
+            headers: { 'User-Agent': 'UltraNoteI Services' }
           }, (err, res, data) => {
             if (err) {
               console.log(statsUrl + ' -> Status:', err.message);
@@ -119,7 +119,7 @@ module.exports = {
                     url: url + '/network/stats',
                     json: true,
                     timeout: 2000,
-                    headers: { 'User-Agent': 'Conceal Services' }
+                    headers: { 'User-Agent': 'UltraNoteI Services' }
                   }, (err, res, network) => {
                     if (err) {
                       console.log(statsUrl + ' -> Status:', err.message);
@@ -134,7 +134,7 @@ module.exports = {
                         url: url + '/config',
                         json: true,
                         timeout: 2000,
-                        headers: { 'User-Agent': 'Conceal Services' }
+                        headers: { 'User-Agent': 'UltraNoteI Services' }
                       }, (err, res, config) => {
                         if (err) {
                           console.log(statsUrl + ' -> Status:', err.message);

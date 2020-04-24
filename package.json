@@ -1,7 +1,7 @@
 {
-  "name": "conceal-services",
+  "name": "ultranotei-services",
   "version": "1.0.0",
-  "description": "Conceal Misc Services",
+  "description": "UltraNoteI Misc Services",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

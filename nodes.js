@@ -12,7 +12,7 @@ class nodes {
     this.geoJSONArray = [];
 
     this.addressList = [
-      "https://explorer.conceal.network/daemon/getpeers"
+      "https://stats.ultranote.org/daemon/getpeers"
     ];
 
     this.nodeCache = new NodeCache({ stdTTL: config.nodes.cache.expire, checkperiod: config.nodes.cache.checkPeriod }); // the cache object
@@ -28,9 +28,9 @@ class nodes {
     var counter = 0;
 
     request.get({
-      url: "https://explorer.conceal.network/pool/list?isReachable=true",
+      url: "https://stats.ultranote.org/pool/list?isReachable=true",
       json: true,
-      headers: { 'User-Agent': 'Conceal Services' }
+      headers: { 'User-Agent': 'UltraNoteI Services' }
     }, (err, res, data) => {
       if (err) {
         console.log('Error:', err.message);
@@ -51,7 +51,7 @@ class nodes {
             request.get({
               url: value,
               json: true,
-              headers: { 'User-Agent': 'Conceal Services' }
+              headers: { 'User-Agent': 'UltraNoteI Services' }
             }, (err, res, data) => {
               if (err) {
                 console.log('Error:', err.message);
