@@ -85,7 +85,7 @@ exchanges/list?name=Hotbit
 **address**: Filter by the exchange address if its a permanent one. Partial searches supported (by default). Example:
 
 ```
-exchanges/list?address=ccx7dnmkqFgHHnuQsaWjg57Hk69jmk6k4XKdG34jmX39ho5Gz45SJJ9U96zYzAcqP421xp8qU3NVpMsFhCotmuGR75i9PAQXEj
+exchanges/list?address=xuni*
 ```
 
 Both parameters also support wildcard searches and partial searches. For example
