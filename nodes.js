@@ -23,7 +23,7 @@ class nodes {
     this.updateGeoData();
   }
 
-  updateGeoData = () => {
+  updateGeoData(){
     this.geoJSONArray = [];
     var counter = 0;
 
