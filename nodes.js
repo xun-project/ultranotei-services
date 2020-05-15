@@ -28,7 +28,7 @@ class nodes {
     var counter = 0;
 
     request.get({
-      url: "https://stats.ultranote.org/pool/list?isReachable=true",
+      url: "https://stats.ultranote.org/api/pool/list?isReacheable=true",
       json: true,
       headers: { 'User-Agent': 'UltraNoteI Services' }
     }, (err, res, data) => {
