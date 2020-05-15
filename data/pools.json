@@ -1,9 +1,9 @@
 
 {
-   "xuni":[
+   "XUNI":[
       [
          "infinity.ultranote.org",
-         "https://infinity.ultranote.org/api",
+         "https://infinity.ultranote.org:8119/stats",
          "Official Pool",
          "1"
       ],
