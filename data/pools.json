@@ -4,15 +4,15 @@
       [
          "infinity.ultranote.org",
          "https://infinity.ultranote.org:8119",
-         "Official Pool",
+         "Official Pool Infinity",
          "1"
       ],
       
       
       [
          "trinity.ultranote.org",
-         "https://trinity.ultranote.org/api",
-         "DAXMiner",
+         "https://trinity.ultranote.org:8119",
+         "Official Pool Trinity",
          "1"
       ]
    ]
