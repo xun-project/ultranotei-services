@@ -7,13 +7,21 @@
          "Official Pool Infinity",
          "1"
       ],
-      
-      
+
+
       [
          "trinity.ultranote.org",
          "https://trinity.ultranote.org:8119",
          "Official Pool Trinity",
          "1"
+      ],
+
+      [
+         "niobe.ultranote.org",
+         "https://niobe.ultranote.org:8119",
+         "Official Pool Niobe",
+         "1"
       ]
    ]
+
 }
