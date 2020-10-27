@@ -22,6 +22,14 @@
          "Official Pool Niobe",
          "1"
       ],
+      
+      [
+         "xuni.pool-pay.com",
+         "https://xuni.pool-pay.com:8279/stats",
+         "Community Pool Pool-Pay",
+         "1"
+      ],
+      
       [
          "xuni.letshash.it",
          "http://xuni.letshash.it:8120",
