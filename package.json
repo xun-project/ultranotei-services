@@ -11,7 +11,7 @@
   "dependencies": {
     "array-smooth": "^1.0.0",
     "body-parser": "^1.19.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-node-canvas": "^2.4.0",
     "command-line-args": "^5.1.1",
     "cors": "^2.8.5",
