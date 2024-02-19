@@ -16,26 +16,15 @@
          "1"
       ],
 
-      [
-         "niobe.ultranote.org",
-         "https://niobe.ultranote.org:8119",
-         "Official Pool Niobe",
-         "1"
-      ],
-      
+       
       [
          "xuni.pool-pay.com",
          "https://xuni.pool-pay.com:8279",
          "Community Pool Pool-Pay",
          "1"
-      ],
-      
-      [
-         "xuni.letshash.it",
-         "http://xuni.letshash.it:8120",
-         "Community Pool LetsHash",
-         "1"
       ]
+      
+      
 
    ]
 
